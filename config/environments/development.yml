@@ -1,5 +1,5 @@
 secret_key_base: wbFLRVuMeTzjwGhc_-FZCkOztwFv38q_3iyKmhvP-hU
-port: (ENV["PORT"] || 3000).to_i
+port: (ENV["PORT"]? || 3000).to_i
 name: ambrockets
 log: "::Logger.new(STDOUT)"
 log_level: "::Logger::INFO"
