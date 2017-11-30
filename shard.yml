@@ -1,0 +1,42 @@
+name: ambrockets
+version: 0.1.0
+
+authors:
+  - Faustino Aguilar <faustinoaq@outlook.com>
+
+crystal: 0.23.1
+
+license: MIT
+
+targets:
+  ambrockets:
+    main: src/ambrockets.cr
+
+  amber:
+    main: lib/amber/src/amber/cli.cr
+
+dependencies:
+  amber:
+    github: amberframework/amber
+    version: 0.3.6
+
+  granite_orm:
+    github: amberframework/granite-orm
+    version: ~> 0.7.7
+
+  quartz_mailer:
+    github: amberframework/quartz-mailer
+    version: ~> 0.2.0
+
+  jasper_helpers:
+    github: amberframework/jasper-helpers
+    version: ~> 0.1.6
+
+  pg:
+    github: will/crystal-pg
+    version: ~> 0.13.4
+
+development_dependencies:
+  garnet_spec:
+    github: amberframework/garnet-spec
+    version: ~> 0.1.1
