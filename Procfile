@@ -1,1 +1,1 @@
-web: ./app -p $PORT
+web: ./app
