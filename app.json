@@ -1,0 +1,21 @@
+{
+  "name": "ambrockets",
+  "description": "Simple Websockets example using Amber",
+  "scripts": {
+  },
+  "env": {
+    "AMBER_ENV": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/crystal-lang/heroku-buildpack-crystal.git"
+    }
+  ]
+}
