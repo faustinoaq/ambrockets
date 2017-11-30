@@ -11,7 +11,10 @@ div.col-sm-6
     div#messages
     == form(class: "form-group", id: "form-message") do
       == text_field(name: "message", autofocus: "", required: "", class: "form-control", id: "message", placeholder: "Your message here")
+    - :end
   - else
     == form(class: "form-group") do
       == csrf_tag
       == text_field(name: "user", autofocus: "", required: "", class: "form-control", placeholder: "Your name here")
+    - :end
+  - :end
