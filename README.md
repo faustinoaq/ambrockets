@@ -4,7 +4,7 @@ A simple Websockets example using Amber 😎
 
 Demo: https://ambrockets.herokuapp.com
 
-![ambrockets](https://raw.githubusercontent.com/faustinoaq/ambrockets/master/src/assets/images/rocket.png)
+![ambrockets](https://raw.githubusercontent.com/faustinoaq/ambrockets/master/src/assets/images/logo.png)
 
 ## Installation
 
