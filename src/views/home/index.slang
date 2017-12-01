@@ -13,7 +13,7 @@ div.col-sm-6
       == text_field(name: "message", autofocus: "", required: "", class: "form-control", id: "message", placeholder: "Your message here")
     - :end
   - else
-    == form(class: "form-group") do
+    == form(action: "/register", class: "form-group") do
       == csrf_tag
       == text_field(name: "user", autofocus: "", required: "", class: "form-control", placeholder: "Your name here")
     - :end

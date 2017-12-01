@@ -23,9 +23,9 @@ Amber::Server.configure do |app|
   end
 
   routes :web do
-    websocket "/chat", UserSocket
+    websocket "/chat", ChatSocket
     get "/", HomeController, :index
-    post "/", HomeController, :register
     get "/logout", HomeController, :logout
+    post "/register", HomeController, :register
   end
 end
