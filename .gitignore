@@ -5,7 +5,6 @@
 /.vscode/
 /tmp/
 .env
-.amber_secret_key
 production.yml
 .DS_Store
 /bin/
