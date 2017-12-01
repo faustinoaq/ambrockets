@@ -5,7 +5,7 @@ class HomeController < ApplicationController
 
   def register
     if (user = params["user"]) && !user.blank?
-      session["user"] = user
+      session["user"] = user[0..100]
     end
     redirect_to(HomeController, :index)
   end
