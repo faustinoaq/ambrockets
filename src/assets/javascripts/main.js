@@ -13,7 +13,7 @@ socket.connect().then(() => {
     channel.on('message_new', payload => {
         let p = document.createElement('p');
         p.innerText = payload.message;
-        p.innerHTML = `<b>${payload.user.trim()}: </b>` + p.innerHTML;
+        p.innerHTML = `<b>${payload.user.trim()}: </b>` + p.innerText;
         messages.append(p);
         messages.scrollTop = messages.scrollHeight;
     });
