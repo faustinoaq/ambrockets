@@ -21,12 +21,6 @@ To run the demo:
 ➜ ./bin/ambrockets
 ```
 
-or using Amber CLI:
-
-```
-➜ amber run
-```
-
 ## Contributing
 
 1. Fork it ( https://github.com/faustinoaq/ambrockets/fork )
