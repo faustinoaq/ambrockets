@@ -22,7 +22,7 @@ socket.connect().then(() => {
         let p = document.createElement('p');
         p.innerText = payload.message;
         if (payload.user) {
-            p.innerHTML = `<b>${payload.user}: </b> ${p.innerText}`;
+            p.innerHTML = `<b>${payload.user}: </b> ${p.innerHTML}`;
         }
         messages.appendChild(p);
         messages.scrollTop = messages.scrollHeight;
