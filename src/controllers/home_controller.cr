@@ -1,24 +1,25 @@
 class HomeController < ApplicationController
+  USERS = [] of String
+
   def index
     render("index.slang")
   end
 
   def register
     if (user = params["user"]) && !user.blank?
-      session["user"] = user[0..100]
-      ChatSocket.broadcast("message", "chat_room:hello", "message_new", {
-        "user" => "",
-        "message" => "#{session["user"]} joined to ambrockets!"
-      })
+      user = user[0..100]
+      if USERS.includes?(user)
+        flash["warning"] = "#{user} is alreade in use, please choose another name"
+      else
+        USERS << user
+        session["user"] = user
+      end
     end
     redirect_to(HomeController, :index)
   end
 
   def logout
-    ChatSocket.broadcast("message", "chat_room:hello", "message_new", {
-      "user" => "",
-      "message" => "#{session["user"]} left ambrockets..."
-    })
+    USERS.delete(session["user"])
     session.delete("user")
     redirect_to(HomeController, :index)
   end

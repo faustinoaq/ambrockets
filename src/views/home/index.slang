@@ -8,7 +8,7 @@ div.col-sm-6
     p You are
       span.user
         = user
-      a.btn.btn-danger.btn-xs href="/logout"
+      a.btn.btn-danger.btn-xs.logout href="/logout"
         | Logout
     div#messages
     == form(class: "form-group", id: "form-message") do
