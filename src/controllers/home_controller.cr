@@ -7,7 +7,7 @@ class HomeController < ApplicationController
 
   def register
     if (user = params["user"]) && !user.blank?
-      user = user[0..100]
+      user = user[0..100].strip
       if USERS.includes?(user)
         flash["danger"] = "#{user} is unavailable, please choose another name"
       else
