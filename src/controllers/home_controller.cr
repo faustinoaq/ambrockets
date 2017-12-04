@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     if (user = params["user"]) && !user.blank?
       session["user"] = user[0..100]
       ChatSocket.broadcast("message", "chat_room:hello", "message_new", {
-        "user" => "Server",
+        "user" => "",
         "message" => "#{session["user"]} joined to ambrockets!"
       })
     end
@@ -16,7 +16,7 @@ class HomeController < ApplicationController
 
   def logout
     ChatSocket.broadcast("message", "chat_room:hello", "message_new", {
-      "user" => "Server",
+      "user" => "",
       "message" => "#{session["user"]} left ambrockets..."
     })
     session.delete("user")
