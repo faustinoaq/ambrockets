@@ -1,6 +1,6 @@
 # ambrockets
 
-A simple Websockets example using [Amber Framework](https://amberframework.org/) 😎
+A simple Websockets example using [Amber Framework](https://amberframework.org/) 😎🚀
 
 Demo: https://ambrockets.herokuapp.com
 
