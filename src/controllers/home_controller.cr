@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   private def message
     if user = session["user"]
-      "{user} joined to ambrockets!"
+      "#{user} joined to ambrockets!"
     else
       "Someone is visiting ambrockets..."
     end
