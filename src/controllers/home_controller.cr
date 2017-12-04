@@ -1,17 +1,11 @@
 class HomeController < ApplicationController
-  private def message
-    if user = session["user"]
-      "#{user} joined to ambrockets!"
-    else
-      "Someone is visiting ambrockets..."
-    end
-  end
-
   def index
-    ChatSocket.broadcast("message", "chat_room:hello", "message_new", {
-      "user" => "Server",
-      "message" => message
-    })
+    if user = session["user"]
+      ChatSocket.broadcast("message", "chat_room:hello", "message_new", {
+        "user" => "Server",
+        "message" => "#{user} joined to ambrockets!"
+      })
+    end
     render("index.slang")
   end
 
