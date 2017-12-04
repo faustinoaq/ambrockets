@@ -1,7 +1,9 @@
 div#logo.col-sm-6
 div.col-sm-6
   h2 Welcome to Ambrockets!
-  p A simple Websockets example using Amber 😎
+  p A simple WebSockets example using
+    a href="https://amberframework.org/" Amber Framework
+    😎🚀
   - if user = session["user"]
     p You are
       span.user
