@@ -1,8 +1,16 @@
 class HomeController < ApplicationController
+  private def message
+    if user = session["user"]
+      "{session["user"]} joined to ambrockets!"
+    else
+      "Someone is visiting ambrockets..."
+    end
+  end
+
   def index
     ChatSocket.broadcast("message", "chat_room:hello", "message_new", {
       "user" => "Server",
-      "message" => "Someone is visiting ambrockets..."
+      "message" => message
     })
     render("index.slang")
   end
@@ -10,15 +18,15 @@ class HomeController < ApplicationController
   def register
     if (user = params["user"]) && !user.blank?
       session["user"] = user[0..100]
-      ChatSocket.broadcast("message", "chat_room:hello", "message_new", {
-        "user" => "Server",
-        "message" => "#{session["user"]} joined to ambrockets!"
-      })
     end
     redirect_to(HomeController, :index)
   end
 
   def logout
+    ChatSocket.broadcast("message", "chat_room:hello", "message_new", {
+      "user" => "Server",
+      "message" => "#{session["user"]} left ambrockets..."
+    })
     session.delete("user")
     redirect_to(HomeController, :index)
   end
