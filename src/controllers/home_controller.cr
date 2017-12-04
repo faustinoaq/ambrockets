@@ -6,10 +6,11 @@ class HomeController < ApplicationController
   end
 
   def register
-    if (user = params["user"]) && !user.blank?
+    user = params["user"]
+    unless user.blank?
       user = user[0..100].strip
       if USERS.includes?(user)
-        flash["danger"] = "#{user} is unavailable, please choose another name"
+        flash["danger"] = "#{user} is already used, please choose another name"
       else
         ChatSocket.broadcast("message", "chat_room:hello", "message_new", {
           "user"    => "",
