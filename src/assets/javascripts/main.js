@@ -30,26 +30,28 @@ socket.connect().then(() => {
 
     messageForm.addEventListener('submit', event => {
         event.preventDefault();
-        if (localStorage.getItem('user') == getUser()) {
+        let user = getUser();
+        if (localStorage.getItem('user') == user) {
             channel.push('message_new', {
-                user: getUser(),
+                user: user,
                 message: message.value
             });
             message.value = '';
         } else {
-            alert(`${getUser()} is disconnected!`);
+            alert(`${user} is disconnected!`);
             window.location.reload();
         }
     });
 
     logout.addEventListener('click', event => {
-        if (localStorage.getItem('user') == getUser()) {
+        let user = getUser();
+        if (localStorage.getItem('user') == user) {
             channel.leave();
             socket.disconnect();
             localStorage.clear();
         } else {
             event.preventDefault();
-            alert(`${getUser()} is already disconnected!`);
+            alert(`${user} is already disconnected!`);
             window.location.reload();
         }
     });
