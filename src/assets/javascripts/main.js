@@ -2,10 +2,16 @@ import Amber from 'amber';
 
 let socket = new Amber.Socket('/chat');
 
-let message = $('#message')[0];
-let messages = $('#messages')[0];
+let logout = document.getElementById('logout');
+let message = document.getElementById('message');
+let messages = document.getElementById('messages');
+let messageForm = document.getElementById('message-form');
 
-localStorage.setItem('user', $('.user').text());
+function getUser() {
+    return document.getElementById('user').innerText.trim();
+}
+
+localStorage.setItem('user', getUser());
 
 socket.connect().then(() => {
     let channel = socket.channel('chat_room:hello');
@@ -15,30 +21,36 @@ socket.connect().then(() => {
     channel.on('message_new', payload => {
         let p = document.createElement('p');
         p.innerText = payload.message;
-        if (payload.user.length > 0) {
-            p.innerHTML = `<b>${payload.user.trim()}: </b>` + p.innerText;
+        if (payload.user) {
+            p.innerHTML = `<b>${payload.user}: </b> ${p.innerText}`;
         }
-        messages.append(p);
+        messages.appendChild(p);
         messages.scrollTop = messages.scrollHeight;
     });
 
-    $('#form-message').on('submit', event => {
+    messageForm.addEventListener('submit', event => {
         event.preventDefault();
-        if (localStorage.getItem('user') === null) {
-            let p = document.createElement('p');
-            p.innerText = "You are disconnected!";
-            messages.append(p);
-        } else {
+        if (localStorage.getItem('user') == getUser()) {
             channel.push('message_new', {
-                user: localStorage.getItem('user'),
+                user: getUser(),
                 message: message.value
             });
             message.value = '';
+        } else {
+            alert(`${getUser()} is disconnected!`);
+            window.location.reload();
         }
     });
 
-    $('.logout').on('click', event => {
-        socket.disconnect();
-        localStorage.clear();
+    logout.addEventListener('click', event => {
+        if (localStorage.getItem('user') == getUser()) {
+            channel.leave();
+            socket.disconnect();
+            localStorage.clear();
+        } else {
+            event.preventDefault();
+            alert(`${getUser()} is already disconnected!`);
+            window.location.reload();
+        }
     });
 });

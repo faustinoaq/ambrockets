@@ -6,17 +6,17 @@ div.col-sm-6
     | 😎🚀
   - if user = session["user"]
     p You are
-      span.user
+      span#user
         = user
-      a.btn.btn-danger.btn-xs.logout href="/logout"
+      a#logout.btn.btn-danger.btn-xs href="/logout"
         | Logout
     div#messages
-    == form(class: "form-group", id: "form-message") do
-      == text_field(name: "message", autofocus: "", required: "", class: "form-control", id: "message", placeholder: "Your message here")
+    == form(class: "form-group", id: "message-form") do
+      == text_field(name: "message", id: "message", class: "form-control", placeholder: "Your message here", autofocus: "", required: "")
     - :end
   - else
     == form(action: "/register", class: "form-group") do
       == csrf_tag
-      == text_field(name: "user", autofocus: "", required: "", class: "form-control", placeholder: "Your name here")
+      == text_field(name: "user", class: "form-control", placeholder: "Your name here", autofocus: "", required: "")
     - :end
   - :end

@@ -9,8 +9,12 @@ class HomeController < ApplicationController
     if (user = params["user"]) && !user.blank?
       user = user[0..100]
       if USERS.includes?(user)
-        flash["warning"] = "#{user} is alreade in use, please choose another name"
+        flash["danger"] = "#{user} is unavailable, please choose another name"
       else
+        ChatSocket.broadcast("message", "chat_room:hello", "message_new", {
+          "user"    => "",
+          "message" => "#{user} joined to ambrockets!",
+        })
         USERS << user
         session["user"] = user
       end

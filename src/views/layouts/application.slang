@@ -18,6 +18,11 @@ html
           == render(partial: "layouts/_nav.slang")
     div.container
       div.row
+      br
+      - flash.each do |key, value|
+        div class="alert alert-#{ key }"
+          p = flash[key]
+      div.row
         div.col-sm-12.main
           == content
 
