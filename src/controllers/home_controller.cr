@@ -20,12 +20,12 @@ class HomeController < ApplicationController
         session["user"] = user
       end
     end
-    redirect_to(:index)
+    redirect_to(HomeController, :index)
   end
 
   def logout
     USERS.delete(session["user"])
     session.delete("user")
-    redirect_to(:index)
+    redirect_to(HomeController, :index)
   end
 end
