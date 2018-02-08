@@ -5,6 +5,7 @@ A simple Websockets example using [Amber Framework](https://amberframework.org/)
 Demo: https://ambrockets.herokuapp.com
 
 [![ambrockets](https://raw.githubusercontent.com/faustinoaq/ambrockets/master/src/assets/images/logo.png)](https://ambrockets.herokuapp.com)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ffaustinoaq%2Fambrockets.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Ffaustinoaq%2Fambrockets?ref=badge_shield)
 
 ## Installation
 
@@ -32,3 +33,7 @@ To run the demo:
 ## Contributors
 
 - [faustinoaq](https://github.com/faustinoaq) Faustino Aguilar - creator, maintainer
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ffaustinoaq%2Fambrockets.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Ffaustinoaq%2Fambrockets?ref=badge_large)
